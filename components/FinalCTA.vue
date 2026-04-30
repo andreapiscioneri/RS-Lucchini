@@ -1,28 +1,10 @@
 <script setup lang="ts">
 // FinalCTA — sezione di chiusura premium con gradient glow,
 // upload/logo area placeholder per RS Lucchini, download brochure, magnetic CTAs.
-import { CalendarCheck, Download, Upload, FileText } from 'lucide-vue-next'
+import { CalendarCheck, FileText } from 'lucide-vue-next'
 
 const root = ref<HTMLElement | null>(null)
 useReveal(root, { stagger: 0.08 })
-
-// Logo upload (placeholder client-side, solo demo: il logo finale può essere
-// inserito in /public/images/logo-rs-lucchini.svg)
-const logoFile = ref<File | null>(null)
-const logoSrc = ref<string>('/images/lucchini.png')
-const fileInput = ref<HTMLInputElement | null>(null)
-
-const onPick = () => fileInput.value?.click()
-
-const onLogoChange = (e: Event) => {
-  const target = e.target as HTMLInputElement
-  const f = target.files?.[0]
-  if (!f) return
-  logoFile.value = f
-  const reader = new FileReader()
-  reader.onload = () => (logoSrc.value = reader.result as string)
-  reader.readAsDataURL(f)
-}
 </script>
 
 <template>
@@ -48,7 +30,7 @@ const onLogoChange = (e: Event) => {
     </div>
 
     <div class="container-x">
-      <div class="relative glass-strong grad-border rounded-[28px] p-8 sm:p-12 lg:p-16 ring-steel">
+      <div class="relative glass-strong grad-border rounded-[20px] sm:rounded-[28px] p-5 sm:p-10 lg:p-16 ring-steel">
         <!-- Soft glow blob -->
         <span
           aria-hidden="true"
@@ -114,46 +96,18 @@ const onLogoChange = (e: Event) => {
             </figure>
           </div>
 
-          <!-- Right: logo upload area -->
+          <!-- Right: Denani brand area -->
           <div class="lg:col-span-5">
             <div data-reveal class="relative glass grad-border rounded-2xl p-6 sm:p-7">
-              <div class="flex items-center justify-between">
-                <p class="text-[11px] uppercase tracking-[0.18em] text-ink-muted">
-                  Brand area
-                </p>
-                <button
-                  type="button"
-                  class="text-[11px] uppercase tracking-[0.18em] text-accent hover:text-accent/80 inline-flex items-center gap-1.5"
-                  @click="onPick"
-                >
-                  <Upload class="w-3.5 h-3.5" />
-                  Carica logo
-                </button>
-                <input
-                  ref="fileInput"
-                  type="file"
-                  accept="image/png,image/svg+xml,image/jpeg"
-                  class="hidden"
-                  @change="onLogoChange"
-                />
-              </div>
+              <p class="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Chi porta questo progetto</p>
 
-              <div class="mt-6 aspect-[16/10] rounded-xl bg-bg-deep ring-1 ring-steel-700/60 grid place-items-center overflow-hidden">
-                <!-- Img standard: gestisce sia path statici sia data-URL del FileReader -->
+              <div class="mt-6 aspect-[16/10] rounded-xl bg-black ring-1 ring-steel-700/60 grid place-items-center overflow-hidden group cursor-pointer">
                 <img
-                  v-if="logoSrc"
-                  :src="logoSrc"
-                  alt="RS Lucchini logo"
-                  class="max-w-[60%] max-h-[60%] object-contain opacity-90"
+                  src="/images/DENANI-LOGO-WHITE.webp"
+                  alt="Denani"
+                  class="w-[38%] object-contain transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
                 />
-                <div v-else class="text-ink-muted text-sm">Nessun logo</div>
               </div>
-
-              <p class="mt-4 text-xs text-ink-muted">
-                Placeholder logo RS Lucchini. Sostituire il file in
-                <code class="text-ink">/public/images/logo-rs-lucchini.svg</code>
-                oppure usare "Carica logo" per anteprima.
-              </p>
 
               <div class="mt-6 grid grid-cols-2 gap-3 text-xs">
                 <div class="rounded-lg bg-bg-deep/60 ring-1 ring-steel-700/60 p-3">

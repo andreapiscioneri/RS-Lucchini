@@ -95,7 +95,7 @@ onMounted(() => {
           </figure>
         </div>
 
-        <div class="lg:col-span-5 grid sm:grid-cols-1 gap-4">
+        <div class="lg:col-span-5 grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
           <div
             v-for="(r, i) in reasons"
             :key="r.title"

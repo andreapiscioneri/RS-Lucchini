@@ -109,7 +109,7 @@ onMounted(() => {
         lead="Core del pilota: giornata reale, attività tecnica, vita fuori dal lavoro. Cosa fai, come lavori, cosa ti permette."
       />
 
-      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-5 auto-rows-[200px] sm:auto-rows-[240px]">
+      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-5 auto-rows-[260px] sm:auto-rows-[240px] lg:auto-rows-[220px]">
         <article
           v-for="(c, i) in cards"
           :key="c.id"

@@ -50,13 +50,11 @@ const handleNav = (href: string) => {
       ]"
     >
       <div class="container-x flex items-center justify-between h-16 sm:h-20">
-        <!-- Brand -->
-        <a href="#top" class="flex items-center group shrink-0" @click.prevent="handleNav('#top')">
-          <img
-            src="https://lucchinirs.com/wp-content/uploads/2022/02/logo_lucchinirs-white.png"
-            alt="Lucchini RS"
-            class="h-8 sm:h-10 w-auto object-contain transition-opacity group-hover:opacity-80"
-          />
+        <!-- Brand: Denani | RS Lucchini -->
+        <a href="#top" class="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0" @click.prevent="handleNav('#top')">
+          <img src="/images/DENANI-LOGO-WHITE.webp" alt="Denani" class="h-5 sm:h-7 w-auto object-contain shrink-0 transition-opacity group-hover:opacity-80" />
+          <span class="text-steel-600 text-base sm:text-lg font-light shrink-0">|</span>
+          <img src="https://lucchinirs.com/wp-content/uploads/2022/02/logo_lucchinirs-white.png" alt="Lucchini RS" class="h-4 sm:h-6 w-auto object-contain shrink-0 opacity-75 transition-opacity group-hover:opacity-90" />
         </a>
 
         <!-- Desktop nav -->

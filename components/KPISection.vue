@@ -56,7 +56,7 @@ onMounted(() => {
 
       <div class="mt-14 grid lg:grid-cols-12 gap-5">
         <!-- Counter cards -->
-        <div class="lg:col-span-7 grid sm:grid-cols-3 gap-5">
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-5">
           <div data-reveal class="glass grad-border rounded-2xl p-6 sm:p-7 ring-steel">
             <div class="flex items-center justify-between">
               <div class="w-10 h-10 rounded-lg bg-accent/10 ring-1 ring-accent/30 grid place-items-center text-accent">
@@ -65,11 +65,11 @@ onMounted(() => {
               <span class="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Reach</span>
             </div>
             <p class="mt-7 text-[11px] uppercase tracking-[0.18em] text-ink-muted">Persone raggiunte</p>
-            <div class="mt-1 flex items-end gap-2">
-              <span class="text-ink-muted text-base">20–</span>
-              <span ref="c1" class="font-display text-5xl text-gradient">0</span>
+            <div class="mt-1 flex items-end gap-1">
+              <span class="text-ink-muted text-sm">20–</span>
+              <span ref="c1" class="font-display text-4xl sm:text-3xl lg:text-4xl text-gradient">0</span>
             </div>
-            <p class="mt-3 text-xs text-ink-muted">Su Meta + LinkedIn, target locale e settoriale.</p>
+            <p class="mt-3 text-xs text-ink-muted">Su Meta (Instagram + Facebook), target locale 18–30 anni.</p>
           </div>
 
           <div data-reveal class="glass grad-border rounded-2xl p-6 sm:p-7 ring-steel">
@@ -80,9 +80,9 @@ onMounted(() => {
               <span class="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Engage</span>
             </div>
             <p class="mt-7 text-[11px] uppercase tracking-[0.18em] text-ink-muted">Interazioni</p>
-            <div class="mt-1 flex items-end gap-2">
-              <span class="text-ink-muted text-base">500–</span>
-              <span ref="c2" class="font-display text-5xl text-gradient">0</span>
+            <div class="mt-1 flex items-end gap-1">
+              <span class="text-ink-muted text-sm">500–</span>
+              <span ref="c2" class="font-display text-4xl sm:text-3xl lg:text-4xl text-gradient">0</span>
             </div>
             <p class="mt-3 text-xs text-ink-muted">Like, commenti, salvataggi, click verso landing.</p>
           </div>
@@ -95,9 +95,9 @@ onMounted(() => {
               <span class="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Lead</span>
             </div>
             <p class="mt-7 text-[11px] uppercase tracking-[0.18em] text-ink-muted">Candidature / contatti</p>
-            <div class="mt-1 flex items-end gap-2">
-              <span class="text-ink-muted text-base">10–</span>
-              <span ref="c3" class="font-display text-5xl text-gradient">0</span>
+            <div class="mt-1 flex items-end gap-1">
+              <span class="text-ink-muted text-sm">10–</span>
+              <span ref="c3" class="font-display text-4xl sm:text-3xl lg:text-4xl text-gradient">0</span>
             </div>
             <p class="mt-3 text-xs text-ink-muted">Di cui qualifichiamo manualmente i più rilevanti.</p>
           </div>

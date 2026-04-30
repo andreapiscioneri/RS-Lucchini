@@ -75,7 +75,7 @@ const handleNav = (href: string) => {
         preload="metadata"
         poster="/images/hero-poster.svg"
       >
-        <source src="https://lucchinirs.com/video/clip-per-intro-sito-web.mp4" type="video/mp4" />
+        <source src="/images/hero-foundry.mp4" type="video/mp4" />
       </video>
 
       <!-- Overlays cinematici -->
@@ -103,13 +103,6 @@ const handleNav = (href: string) => {
 
     <!-- Content -->
     <div class="relative container-x w-full pb-20 sm:pb-24 lg:pb-32 pt-32 sm:pt-40">
-      <!-- Dual logo strip -->
-      <div class="hero-eyebrow flex items-center gap-4 mb-7">
-        <img src="/images/DENANI-LOGO-WHITE.webp" alt="Denani" class="h-6 sm:h-8 w-auto object-contain" />
-        <span class="text-steel-500 text-lg font-light">|</span>
-        <img src="https://lucchinirs.com/wp-content/uploads/2022/02/logo_lucchinirs-white.png" alt="Lucchini RS" class="h-5 sm:h-7 w-auto object-contain opacity-80" />
-      </div>
-
       <h1
         ref="headline"
         class="font-display text-hero text-balance leading-[0.98] tracking-tight max-w-5xl"

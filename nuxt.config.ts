@@ -44,7 +44,7 @@ export default defineNuxtConfig({
         { name: 'twitter:card', content: 'summary_large_image' }
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/images/lucchini.png' },
+        { rel: 'icon', type: 'image/png', href: '/images/fav.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
       ]
     }

@@ -62,15 +62,15 @@ const rows = [
         </div>
 
         <!-- Totale highlight -->
-        <aside data-reveal class="lg:col-span-4">
+        <aside data-reveal class="lg:col-span-4 mt-2 lg:mt-0">
           <div class="relative h-full glass-strong grad-border rounded-2xl p-7 ring-steel overflow-hidden">
             <div class="absolute -top-1/2 -right-1/3 w-[90%] h-[120%] bg-grad-radial opacity-90" />
             <div class="relative">
               <p class="text-[11px] uppercase tracking-[0.18em] text-accent">Investimento totale</p>
-              <div class="mt-3 flex items-baseline gap-2">
-                <span class="font-display text-5xl sm:text-6xl text-gradient">5.500</span>
+              <div class="mt-3 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                <span class="font-display text-4xl sm:text-5xl text-gradient whitespace-nowrap">5.500</span>
                 <span class="text-ink-muted">–</span>
-                <span class="font-display text-5xl sm:text-6xl text-accent-gradient">6.000 €</span>
+                <span class="font-display text-4xl sm:text-5xl text-accent-gradient whitespace-nowrap">6.000 €</span>
               </div>
               <p class="mt-2 text-sm text-ink-muted">IVA esclusa · 6 settimane di lavoro</p>
 
