@@ -126,11 +126,6 @@ const websites = [
 
       <div class="mt-14 pt-6 border-t border-steel-700/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-ink-muted">
         <p>© {{ year }} Denani · Proposta pilota per Lucchini RS · Tutti i diritti riservati.</p>
-        <div class="flex items-center gap-5">
-          <a href="#" class="hover:text-ink">Privacy</a>
-          <a href="#" class="hover:text-ink">Cookie</a>
-          <a href="#" class="hover:text-ink">Note legali</a>
-        </div>
       </div>
     </div>
   </footer>
