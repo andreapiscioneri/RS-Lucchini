@@ -104,9 +104,9 @@ onMounted(() => {
     <div class="container-x">
       <SectionTitle
         eyebrow="04 — Contenuti del pilota"
-        title="Cinque tagli per raccontare il lavoro reale."
+        title="Tre video per far vedere il lavoro reale."
         accent-word="lavoro reale"
-        lead="Il bento mostra il tipo di contenuti che andremo a produrre. Tono concreto, niente patinato."
+        lead="Core del pilota: giornata reale, attività tecnica, vita fuori dal lavoro. Cosa fai, come lavori, cosa ti permette."
       />
 
       <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-5 auto-rows-[200px] sm:auto-rows-[240px]">

@@ -12,31 +12,31 @@ const steps = [
     icon: Search,
     week: 'Settimana 1',
     title: 'Analisi iniziale',
-    text: 'Definiamo insieme il ruolo target, raccogliamo materiali esistenti, mappiamo i punti reali da raccontare.'
+    text: 'Definiamo il ruolo target, le criticità attuali e il profilo del candidato ideale. Un solo ruolo — nessuna dispersione.'
   },
   {
     icon: Camera,
-    week: 'Settimane 2–3',
+    week: 'Settimane 1–2',
     title: 'Produzione contenuti',
-    text: 'Mezza giornata in stabilimento. Riprese autentiche, niente attori, niente storyboard finto. 4–6 contenuti finiti.'
+    text: 'Mezza giornata in stabilimento. 3 video: giornata reale, attività tecnica, vita fuori dal lavoro. Niente attori, niente storyboard finto.'
   },
   {
     icon: Megaphone,
-    week: 'Settimane 4–6',
+    week: 'Settimane 3–6',
     title: 'Attivazione campagne',
-    text: 'Distribuzione su Meta + LinkedIn (più eventuali canali utili al target). A/B sui creatives, copy e segmenti.'
+    text: 'Meta (Instagram + Facebook), targeting locale 18–30 anni. Obiettivo: interesse reale, non solo visibilità.'
   },
   {
     icon: Inbox,
-    week: 'Settimane 5–7',
+    week: 'Settimane 3–6',
     title: 'Raccolta interesse',
-    text: 'Form/landing dedicata, tracciamento provenienza, qualificazione manuale dei contatti più rilevanti.'
+    text: 'Contatti e candidature qualificate. Interazioni rilevanti tracciate e classificate manualmente.'
   },
   {
     icon: BarChart3,
-    week: 'Settimana 8',
+    week: 'Fine settimana 6',
     title: 'Analisi risultati',
-    text: 'Report con metriche, qualità del traffico, profilo dei candidati e raccomandazioni concrete per scalare.'
+    text: 'Report finale: metriche, qualità dei candidati, percezione del ruolo e indicazioni concrete sulla scalabilità.'
   }
 ]
 
@@ -85,7 +85,7 @@ onMounted(() => {
         eyebrow="03 — Il metodo"
         title="Cinque passaggi chiari, niente magia."
         accent-word="cinque passaggi"
-        lead="Un percorso lineare di 6–8 settimane, costruito per validare l'ipotesi senza disperdere risorse."
+        lead="Un percorso lineare di 6 settimane — 2 di produzione, 4 di campagna attiva — costruito per validare l'ipotesi senza disperdere risorse."
       />
 
       <!-- Timeline -->

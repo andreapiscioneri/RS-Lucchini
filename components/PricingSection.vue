@@ -11,7 +11,7 @@ const rows = [
   },
   {
     label: 'Produzione contenuti',
-    desc: '1 mezza giornata in stabilimento, 4–6 contenuti finiti (video + foto), editing premium.',
+    desc: '1 mezza giornata in stabilimento. 3 video: giornata reale, attività tecnica, vita fuori dal lavoro. Editing premium.',
     value: '2.000 €'
   },
   {
@@ -72,7 +72,7 @@ const rows = [
                 <span class="text-ink-muted">–</span>
                 <span class="font-display text-5xl sm:text-6xl text-accent-gradient">6.000 €</span>
               </div>
-              <p class="mt-2 text-sm text-ink-muted">IVA esclusa · 6–8 settimane di lavoro</p>
+              <p class="mt-2 text-sm text-ink-muted">IVA esclusa · 6 settimane di lavoro</p>
 
               <ul class="mt-6 space-y-2 text-sm text-ink-muted">
                 <li class="flex items-start gap-2">

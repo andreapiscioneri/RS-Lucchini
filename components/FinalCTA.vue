@@ -9,7 +9,7 @@ useReveal(root, { stagger: 0.08 })
 // Logo upload (placeholder client-side, solo demo: il logo finale può essere
 // inserito in /public/images/logo-rs-lucchini.svg)
 const logoFile = ref<File | null>(null)
-const logoSrc = ref<string>('/images/logo-rs-lucchini.svg')
+const logoSrc = ref<string>('/images/lucchini.png')
 const fileInput = ref<HTMLInputElement | null>(null)
 
 const onPick = () => fileInput.value?.click()
@@ -62,6 +62,9 @@ const onLogoChange = (e: Event) => {
               <span class="dot" />
               09 — Partiamo
             </p>
+            <p data-reveal class="mb-5 text-sm font-medium tracking-wide text-accent uppercase">
+              Non è marketing · Non è teoria · È un test operativo su un problema reale
+            </p>
             <h2
               data-reveal
               class="font-display text-4xl sm:text-5xl lg:text-6xl text-balance leading-[1.05] tracking-tight"
@@ -71,9 +74,10 @@ const onLogoChange = (e: Event) => {
               <span class="text-gradient">. E vediamo cosa succede.</span>
             </h2>
             <p data-reveal class="mt-6 text-ink-muted text-pretty text-lg max-w-xl">
-              Scegliamo un ruolo critico, lo raccontiamo in modo autentico e
-              misuriamo la risposta reale del mercato. Senza promesse, con
-              numeri verificabili.
+              Scegliamo un ruolo che oggi è critico, lo rendiamo visibile in
+              modo concreto e vediamo che tipo di risposta genera. Se funziona,
+              lo strutturiamo. Se non funziona, abbiamo comunque capito qualcosa
+              di utile.
             </p>
 
             <div data-reveal class="mt-8 flex flex-wrap items-center gap-3">
@@ -100,6 +104,14 @@ const onLogoChange = (e: Event) => {
               <FileText class="w-3.5 h-3.5" />
               Brochure aggiornata · ~1.2 MB · PDF
             </p>
+
+            <!-- Criticità — trasparenza che aumenta credibilità -->
+            <figure data-reveal class="mt-8 relative pl-5 border-l border-steel-600/50">
+              <blockquote class="text-ink-muted text-sm italic leading-relaxed">
+                "Funziona solo se riusciamo a raccontare il lavoro in modo reale,
+                senza filtri. Se questo non è possibile, il risultato si riduce."
+              </blockquote>
+            </figure>
           </div>
 
           <!-- Right: logo upload area -->

@@ -75,7 +75,7 @@ const handleNav = (href: string) => {
         preload="metadata"
         poster="/images/hero-poster.svg"
       >
-        <source src="/videos/hero-foundry.mp4" type="video/mp4" />
+        <source src="https://lucchinirs.com/video/clip-per-intro-sito-web.mp4" type="video/mp4" />
       </video>
 
       <!-- Overlays cinematici -->
@@ -103,10 +103,12 @@ const handleNav = (href: string) => {
 
     <!-- Content -->
     <div class="relative container-x w-full pb-20 sm:pb-24 lg:pb-32 pt-32 sm:pt-40">
-      <p class="hero-eyebrow eyebrow mb-7">
-        <span class="dot" />
-        Pilot · Employer Branding · 2026
-      </p>
+      <!-- Dual logo strip -->
+      <div class="hero-eyebrow flex items-center gap-4 mb-7">
+        <img src="/images/DENANI-LOGO-WHITE.webp" alt="Denani" class="h-6 sm:h-8 w-auto object-contain" />
+        <span class="text-steel-500 text-lg font-light">|</span>
+        <img src="https://lucchinirs.com/wp-content/uploads/2022/02/logo_lucchinirs-white.png" alt="Lucchini RS" class="h-5 sm:h-7 w-auto object-contain opacity-80" />
+      </div>
 
       <h1
         ref="headline"
@@ -144,7 +146,7 @@ const handleNav = (href: string) => {
       <dl class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-y-5 gap-x-8 max-w-3xl">
         <div>
           <dt class="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Durata</dt>
-          <dd class="mt-1 font-display text-lg">6–8 settimane</dd>
+          <dd class="mt-1 font-display text-lg">6 settimane</dd>
         </div>
         <div>
           <dt class="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Investimento</dt>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // WhyPilotSection — sezione storytelling: "Prima validiamo, poi si scala".
 // Background con linee industriali SVG animate (stroke-dashoffset).
-import { ShieldCheck, Target, Gauge } from 'lucide-vue-next'
+import { ShieldCheck, Target, Gauge, Feather } from 'lucide-vue-next'
 
 const root = ref<HTMLElement | null>(null)
 useReveal(root, { stagger: 0.1 })
@@ -21,6 +21,11 @@ const reasons = [
     icon: Gauge,
     title: 'Risultati misurabili',
     text: 'KPI fissati prima, dati raccolti durante, decisione informata alla fine.'
+  },
+  {
+    icon: Feather,
+    title: 'Non invasiva',
+    text: 'Mezza giornata in stabilimento. Nessun impatto operativo, nessuna struttura interna da attivare.'
   }
 ]
 
@@ -82,6 +87,12 @@ onMounted(() => {
             anticipa: ci dice cosa funziona davvero per RS Lucchini, prima di
             allocare budget importanti.
           </p>
+          <figure data-reveal class="mt-8 relative pl-6 border-l border-accent/40">
+            <blockquote class="text-ink/90 text-base italic leading-relaxed">
+              "Non ha senso partire con un progetto ampio senza vedere prima
+              come risponde il mercato su un ruolo concreto."
+            </blockquote>
+          </figure>
         </div>
 
         <div class="lg:col-span-5 grid sm:grid-cols-1 gap-4">

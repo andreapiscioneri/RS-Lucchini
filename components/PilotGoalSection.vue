@@ -44,6 +44,15 @@ const pillars = [
           Un esperimento misurabile: una sola variabile per volta, un solo ruolo,
           metriche definite all'inizio. Senza promesse, con i dati che parlano.
         </p>
+
+        <!-- Ruoli target -->
+        <div data-reveal class="mt-10 inline-flex flex-wrap justify-center gap-3">
+          <span class="text-[11px] uppercase tracking-[0.18em] text-ink-muted self-center">Ruolo target · esempi:</span>
+          <span class="rounded-full px-4 py-1.5 text-sm ring-1 ring-steel-700/70 bg-steel-800/60 text-ink">Operatore impianto acciaieria</span>
+          <span class="rounded-full px-4 py-1.5 text-sm ring-1 ring-steel-700/70 bg-steel-800/60 text-ink">Manutentore meccanico</span>
+          <span class="rounded-full px-4 py-1.5 text-sm ring-1 ring-steel-700/70 bg-steel-800/60 text-ink">Tecnico di produzione</span>
+        </div>
+        <p data-reveal class="mt-4 text-xs text-ink-muted">1 solo ruolo — nessuna dispersione. Il ruolo definitivo viene scelto insieme.</p>
       </div>
 
       <!-- Pillars -->

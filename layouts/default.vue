@@ -51,17 +51,12 @@ const handleNav = (href: string) => {
     >
       <div class="container-x flex items-center justify-between h-16 sm:h-20">
         <!-- Brand -->
-        <a href="#top" class="flex items-center gap-2.5 group" @click.prevent="handleNav('#top')">
-          <span
-            class="relative inline-flex w-9 h-9 rounded-lg items-center justify-center bg-steel-800 ring-1 ring-steel-700/70 overflow-hidden"
-          >
-            <span class="absolute inset-0 bg-grad-radial opacity-70" />
-            <span class="relative font-display font-semibold text-ink">RS</span>
-          </span>
-          <div class="leading-tight">
-            <p class="font-display font-semibold tracking-tight">Lucchini</p>
-            <p class="text-[10px] uppercase tracking-[0.18em] text-ink-muted">Pilot · 2026</p>
-          </div>
+        <a href="#top" class="flex items-center group shrink-0" @click.prevent="handleNav('#top')">
+          <img
+            src="https://lucchinirs.com/wp-content/uploads/2022/02/logo_lucchinirs-white.png"
+            alt="Lucchini RS"
+            class="h-8 sm:h-10 w-auto object-contain transition-opacity group-hover:opacity-80"
+          />
         </a>
 
         <!-- Desktop nav -->
