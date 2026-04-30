@@ -181,7 +181,7 @@ onMounted(() => {
 
       <p class="mt-8 text-sm text-ink-muted max-w-2xl">
         Ogni clip è pensata per durare tra 15 e 90 secondi. I file sorgente
-        restano di proprietà di RS Lucchini e possono essere riutilizzati su
+        restano di proprietà di Lucchini RS e possono essere riutilizzati su
         canali interni, eventi e materiali HR.
       </p>
     </div>

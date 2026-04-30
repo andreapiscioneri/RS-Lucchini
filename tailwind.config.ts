@@ -1,5 +1,5 @@
 // tailwind.config.ts
-// Tema RS Lucchini — palette industriale premium dark, accenti acciaio + arancio caldo.
+// Tema Lucchini RS — palette industriale premium dark, accenti acciaio + arancio caldo.
 import type { Config } from 'tailwindcss'
 
 export default <Partial<Config>>{

@@ -3,10 +3,10 @@
 // Le sezioni sono component "screen-sized" pensate per scroll cinematografico.
 
 useSeoMeta({
-  title: 'RS Lucchini — Mostriamo il lavoro reale',
+  title: 'Lucchini RS — Mostriamo il lavoro reale',
   description:
-    'Un progetto pilota concreto per verificare se autenticità, contenuti reali e comunicazione moderna possono migliorare qualità e interesse delle candidature in RS Lucchini.',
-  ogTitle: 'RS Lucchini — Mostriamo il lavoro reale',
+    'Un progetto pilota concreto per verificare se autenticità, contenuti reali e comunicazione moderna possono migliorare qualità e interesse delle candidature in Lucchini RS.',
+  ogTitle: 'Lucchini RS — Mostriamo il lavoro reale',
   ogDescription:
     'Verifichiamo in modo concreto se mostrare il lavoro reale aumenta interesse e qualità delle candidature.',
   ogImage: '/images/og-cover.svg',

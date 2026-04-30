@@ -1,5 +1,5 @@
 // nuxt.config.ts
-// Configurazione Nuxt 3 — RS Lucchini landing pilota
+// Configurazione Nuxt 3 — Lucchini RS landing pilota
 // Scelte: dark mode default, fonts via @nuxt/fonts, immagini via @nuxt/image,
 // motion via @vueuse/motion, animazioni custom via plugin GSAP.
 
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       htmlAttrs: { lang: 'it', class: 'dark' },
-      title: 'RS Lucchini — Mostriamo il lavoro reale',
+      title: 'Lucchini RS — Mostriamo il lavoro reale',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
@@ -31,10 +31,10 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Un progetto pilota per RS Lucchini: contenuti autentici, comunicazione moderna e metriche reali per attrarre talenti industriali di qualità.'
+            'Un progetto pilota per Lucchini RS: contenuti autentici, comunicazione moderna e metriche reali per attrarre talenti industriali di qualità.'
         },
         { property: 'og:type', content: 'website' },
-        { property: 'og:title', content: 'RS Lucchini — Mostriamo il lavoro reale' },
+        { property: 'og:title', content: 'Lucchini RS — Mostriamo il lavoro reale' },
         {
           property: 'og:description',
           content:

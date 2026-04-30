@@ -50,7 +50,7 @@ const handleNav = (href: string) => {
       ]"
     >
       <div class="container-x flex items-center justify-between h-16 sm:h-20">
-        <!-- Brand: Denani | RS Lucchini -->
+        <!-- Brand: Denani | Lucchini RS -->
         <a href="#top" class="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0" @click.prevent="handleNav('#top')">
           <img src="/images/DENANI-LOGO-WHITE.webp" alt="Denani" class="h-5 sm:h-7 w-auto object-contain shrink-0 transition-opacity group-hover:opacity-80" />
           <span class="text-steel-600 text-base sm:text-lg font-light shrink-0">|</span>
@@ -72,13 +72,6 @@ const handleNav = (href: string) => {
 
         <!-- CTA -->
         <div class="hidden lg:flex items-center gap-3">
-          <a
-            href="/brochure/RS-Lucchini-Pilot.pdf"
-            download
-            class="text-sm text-ink-muted hover:text-ink transition-colors"
-          >
-            Brochure
-          </a>
           <a
             href="#contatto"
             class="btn-shine inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium bg-accent text-white shadow-glow-soft hover:shadow-glow transition-shadow"

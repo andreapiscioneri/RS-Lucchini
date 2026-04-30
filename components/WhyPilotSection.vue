@@ -84,7 +84,7 @@ onMounted(() => {
           </h2>
           <p data-reveal class="mt-6 text-ink-muted max-w-xl text-pretty text-lg">
             Un pilota non sostituisce una strategia di employer branding. La
-            anticipa: ci dice cosa funziona davvero per RS Lucchini, prima di
+            anticipa: ci dice cosa funziona davvero per Lucchini RS, prima di
             allocare budget importanti.
           </p>
           <figure data-reveal class="mt-8 relative pl-6 border-l border-accent/40">

@@ -118,7 +118,7 @@ const handleNav = (href: string) => {
       >
         Un progetto pilota concreto per verificare se autenticità, contenuti reali
         e comunicazione moderna possono migliorare qualità e interesse delle
-        candidature in <span class="text-ink">RS Lucchini</span>.
+        candidature in <span class="text-ink">Lucchini RS</span>.
       </p>
 
       <div ref="ctas" class="mt-9 flex flex-wrap items-center gap-3">
@@ -126,10 +126,10 @@ const handleNav = (href: string) => {
           Scopri il progetto
         </AnimatedButton>
         <AnimatedButton
-          href="/brochure/RS-Lucchini-Pilot.pdf"
-          download
+          href="/images/RS-Lucchini-Proposta-Denani.pdf"
+          target="_blank"
           variant="secondary"
-          icon="download"
+          icon="arrow"
         >
           Scarica brochure
         </AnimatedButton>

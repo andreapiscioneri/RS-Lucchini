@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // FinalCTA — sezione di chiusura premium con gradient glow,
-// upload/logo area placeholder per RS Lucchini, download brochure, magnetic CTAs.
+// upload/logo area placeholder per Lucchini RS, download brochure, magnetic CTAs.
 import { CalendarCheck, FileText } from 'lucide-vue-next'
 
 const root = ref<HTMLElement | null>(null)
@@ -73,12 +73,12 @@ useReveal(root, { stagger: 0.08 })
               </AnimatedButton>
 
               <AnimatedButton
-                href="/brochure/RS-Lucchini-Pilot.pdf"
-                download
+                href="/images/RS-Lucchini-Proposta-Denani.pdf"
+                target="_blank"
                 variant="secondary"
-                icon="download"
+                icon="arrow"
               >
-                Scarica brochure PDF
+                Scarica brochure
               </AnimatedButton>
             </div>
 

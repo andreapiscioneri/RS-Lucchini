@@ -50,7 +50,7 @@ const websites = [
     <div class="container-x">
       <div class="divider-x" />
       <div class="mt-12 grid lg:grid-cols-12 gap-10">
-        <!-- Brand Denani + RS Lucchini -->
+        <!-- Brand Denani + Lucchini RS -->
         <div class="lg:col-span-5">
           <div class="flex items-center gap-4">
             <img
@@ -125,7 +125,7 @@ const websites = [
       </div>
 
       <div class="mt-14 pt-6 border-t border-steel-700/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-ink-muted">
-        <p>© {{ year }} Denani · Proposta pilota per RS Lucchini · Tutti i diritti riservati.</p>
+        <p>© {{ year }} Denani · Proposta pilota per Lucchini RS · Tutti i diritti riservati.</p>
         <div class="flex items-center gap-5">
           <a href="#" class="hover:text-ink">Privacy</a>
           <a href="#" class="hover:text-ink">Cookie</a>
