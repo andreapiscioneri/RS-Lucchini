@@ -1,0 +1,41 @@
+{
+  "name": "rs-lucchini-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RS Lucchini — landing pilota employer branding industriale (Nuxt 3 + GSAP + Lenis).",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint . --ext .ts,.vue"
+  },
+  "dependencies": {
+    "@nuxt/fonts": "^0.10.2",
+    "@nuxt/image": "^1.8.1",
+    "@pinia/nuxt": "^0.5.5",
+    "@studio-freight/lenis": "^1.0.42",
+    "@vueuse/core": "^11.2.0",
+    "@vueuse/motion": "^2.2.6",
+    "@vueuse/nuxt": "^11.2.0",
+    "gsap": "^3.12.5",
+    "lucide-vue-next": "^0.453.0",
+    "nuxt": "^3.13.2",
+    "pinia": "^2.2.4",
+    "swiper": "^11.1.14",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
