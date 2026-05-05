@@ -1,9 +1,10 @@
 <script setup lang="ts">
-// Layout di default — header sticky minimale + slot per pagine.
-import { Menu, X } from 'lucide-vue-next'
+import { Menu, X, Sun, Moon } from 'lucide-vue-next'
 
 const open = ref(false)
 const scrolled = ref(false)
+
+const { isDark, toggle } = useTheme()
 
 const onScroll = () => {
   scrolled.value = window.scrollY > 16
@@ -29,7 +30,6 @@ const links = [
 
 const handleNav = (href: string) => {
   open.value = false
-  // smooth scroll via Lenis se disponibile, altrimenti fallback nativo
   const app = useNuxtApp() as any
   if (app.$scrollTo) {
     app.$scrollTo(href, { offset: -80, duration: 1.2 })
@@ -45,16 +45,36 @@ const handleNav = (href: string) => {
       :class="[
         'fixed inset-x-0 top-0 z-50 transition-all duration-500',
         scrolled
-          ? 'backdrop-blur-xl bg-bg/70 border-b border-steel-700/40'
+          ? isDark
+            ? 'backdrop-blur-xl bg-bg/70 border-b border-steel-700/40'
+            : 'backdrop-blur-xl bg-bg/85 border-b border-steel-700/40 shadow-sm'
           : 'bg-transparent'
       ]"
     >
       <div class="container-x flex items-center justify-between h-16 sm:h-20">
         <!-- Brand: Denani | Lucchini RS -->
         <a href="#top" class="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0" @click.prevent="handleNav('#top')">
-          <img src="/images/DENANI-LOGO-WHITE.webp" alt="Denani" class="h-5 sm:h-7 w-auto object-contain shrink-0 transition-opacity group-hover:opacity-80" />
+          <!-- Denani: white in dark, black (inverted) in light -->
+          <img
+            src="/images/DENANI-LOGO-WHITE.webp"
+            alt="Denani"
+            class="h-5 sm:h-7 w-auto object-contain shrink-0 transition-all duration-300 group-hover:opacity-80"
+            :class="isDark ? '' : 'brightness-0'"
+          />
           <span class="text-steel-600 text-base sm:text-lg font-light shrink-0">|</span>
-          <img src="https://lucchinirs.com/wp-content/uploads/2022/02/logo_lucchinirs-white.png" alt="Lucchini RS" class="h-4 sm:h-6 w-auto object-contain shrink-0 opacity-75 transition-opacity group-hover:opacity-90" />
+          <!-- Lucchini RS: lucchini.png (white) for dark, luc dark.png for light -->
+          <img
+            v-if="isDark"
+            src="/images/lucchini.png"
+            alt="Lucchini RS"
+            class="h-4 sm:h-6 w-auto object-contain shrink-0 opacity-75 transition-opacity group-hover:opacity-90"
+          />
+          <img
+            v-else
+            src="/images/luc%20dark.png"
+            alt="Lucchini RS"
+            class="h-4 sm:h-6 w-auto object-contain shrink-0 opacity-90 transition-opacity group-hover:opacity-100"
+          />
         </a>
 
         <!-- Desktop nav -->
@@ -70,8 +90,21 @@ const handleNav = (href: string) => {
           </a>
         </nav>
 
-        <!-- CTA -->
+        <!-- CTA + theme toggle -->
         <div class="hidden lg:flex items-center gap-3">
+          <!-- Theme toggle -->
+          <button
+            :aria-label="isDark ? 'Passa a light mode' : 'Passa a dark mode'"
+            class="inline-flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-300"
+            :class="isDark
+              ? 'ring-1 ring-steel-700/70 bg-steel-800/60 text-ink-muted hover:text-ink hover:bg-steel-700/60'
+              : 'ring-1 ring-steel-700/50 bg-steel-800/30 text-ink-muted hover:text-ink hover:bg-steel-700/30'"
+            @click="toggle"
+          >
+            <Sun v-if="isDark" class="w-4 h-4" />
+            <Moon v-else class="w-4 h-4" />
+          </button>
+
           <a
             href="#contatto"
             class="btn-shine inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium bg-accent text-white shadow-glow-soft hover:shadow-glow transition-shadow"
@@ -81,14 +114,29 @@ const handleNav = (href: string) => {
           </a>
         </div>
 
-        <!-- Mobile toggle -->
-        <button
-          aria-label="Apri menu"
-          class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg ring-1 ring-steel-700/70 bg-steel-800/60"
-          @click="open = !open"
-        >
-          <component :is="open ? X : Menu" class="w-5 h-5" />
-        </button>
+        <!-- Mobile controls -->
+        <div class="lg:hidden flex items-center gap-2">
+          <!-- Theme toggle mobile -->
+          <button
+            :aria-label="isDark ? 'Passa a light mode' : 'Passa a dark mode'"
+            class="inline-flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-300"
+            :class="isDark
+              ? 'ring-1 ring-steel-700/70 bg-steel-800/60 text-ink-muted'
+              : 'ring-1 ring-steel-700/50 bg-steel-800/30 text-ink-muted'"
+            @click="toggle"
+          >
+            <Sun v-if="isDark" class="w-4 h-4" />
+            <Moon v-else class="w-4 h-4" />
+          </button>
+
+          <button
+            aria-label="Apri menu"
+            class="inline-flex items-center justify-center w-10 h-10 rounded-lg ring-1 ring-steel-700/70 bg-steel-800/60"
+            @click="open = !open"
+          >
+            <component :is="open ? X : Menu" class="w-5 h-5" />
+          </button>
+        </div>
       </div>
 
       <!-- Mobile menu -->

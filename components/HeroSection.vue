@@ -3,6 +3,12 @@
 // scroll indicator animato. Performance: poster + video lazy + autoplay muted.
 import { ChevronDown } from 'lucide-vue-next'
 
+const { isDark } = useTheme()
+const brochureHref = computed(() =>
+  isDark.value
+    ? '/images/Denani%20Lucchini%20RS%20proposal%20dark.pdf'
+    : '/images/Denani%20Lucchini%20RS%20proposal%20light.pdf'
+)
 const root = ref<HTMLElement | null>(null)
 const headline = ref<HTMLElement | null>(null)
 const sub = ref<HTMLElement | null>(null)
@@ -67,6 +73,7 @@ const handleNav = (href: string) => {
     <div ref="media" class="absolute inset-0 -z-10 will-change-transform">
       <!-- Video fullscreen industriale (sostituire con asset reale in /public/videos) -->
       <video
+        :key="isDark ? 'dark' : 'light'"
         class="absolute inset-0 w-full h-full object-cover animate-slowZoom"
         autoplay
         muted
@@ -75,7 +82,10 @@ const handleNav = (href: string) => {
         preload="metadata"
         poster="/images/hero-poster.svg"
       >
-        <source src="/images/hero-foundry.mp4" type="video/mp4" />
+        <source
+          :src="isDark ? '/images/hero-foundry.mp4' : '/images/0_Train_Railroad_1920x1080.mp4'"
+          type="video/mp4"
+        />
       </video>
 
       <!-- Overlays cinematici -->
@@ -126,7 +136,7 @@ const handleNav = (href: string) => {
           Scopri il progetto
         </AnimatedButton>
         <AnimatedButton
-          href="/images/RS-Lucchini-Proposta-Denani.pdf"
+          :href="brochureHref"
           target="_blank"
           variant="secondary"
           icon="arrow"

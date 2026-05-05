@@ -5,6 +5,13 @@ import { CalendarCheck, FileText } from 'lucide-vue-next'
 
 const root = ref<HTMLElement | null>(null)
 useReveal(root, { stagger: 0.08 })
+
+const { isDark } = useTheme()
+const brochureHref = computed(() =>
+  isDark.value
+    ? '/images/Denani%20Lucchini%20RS%20proposal%20dark.pdf'
+    : '/images/Denani%20Lucchini%20RS%20proposal%20light.pdf'
+)
 </script>
 
 <template>
@@ -18,11 +25,12 @@ useReveal(root, { stagger: 0.08 })
       />
       <svg
         aria-hidden="true"
-        class="absolute inset-0 w-full h-full opacity-[0.10]"
+        class="absolute inset-0 w-full h-full transition-opacity duration-300"
+        :class="isDark ? 'opacity-[0.10]' : 'opacity-[0.15]'"
         viewBox="0 0 1200 600"
         preserveAspectRatio="none"
       >
-        <g stroke="#94A3B8" stroke-width="1" fill="none">
+        <g :stroke="isDark ? '#94A3B8' : '#1F3A5F'" stroke-width="1" fill="none">
           <path d="M0,500 L300,500 L350,440 L900,440 L950,380 L1200,380" />
           <path d="M0,200 L420,200 L470,260 L1200,260" />
         </g>
@@ -64,7 +72,7 @@ useReveal(root, { stagger: 0.08 })
 
             <div data-reveal class="mt-8 flex flex-wrap items-center gap-3">
               <AnimatedButton
-                href="mailto:hello@rslucchini-pilot.it?subject=Pilot%20Employer%20Branding%20RS%20Lucchini"
+                href="mailto:support@denani.it?subject=Pilot%20Employer%20Branding%20RS%20Lucchini"
                 variant="primary"
                 icon="arrow"
               >
@@ -73,7 +81,7 @@ useReveal(root, { stagger: 0.08 })
               </AnimatedButton>
 
               <AnimatedButton
-                href="/images/RS-Lucchini-Proposta-Denani.pdf"
+                :href="brochureHref"
                 target="_blank"
                 variant="secondary"
                 icon="arrow"
@@ -81,12 +89,6 @@ useReveal(root, { stagger: 0.08 })
                 Scarica brochure
               </AnimatedButton>
             </div>
-
-            <p data-reveal class="mt-5 text-xs text-ink-muted flex items-center gap-2">
-              <FileText class="w-3.5 h-3.5" />
-              Brochure aggiornata · ~1.2 MB · PDF
-            </p>
-
             <!-- Criticità — trasparenza che aumenta credibilità -->
             <figure data-reveal class="mt-8 relative pl-5 border-l border-steel-600/50">
               <blockquote class="text-ink-muted text-sm italic leading-relaxed">
@@ -101,11 +103,16 @@ useReveal(root, { stagger: 0.08 })
             <div data-reveal class="relative glass grad-border rounded-2xl p-6 sm:p-7">
               <p class="text-[11px] uppercase tracking-[0.18em] text-ink-muted">Chi porta questo progetto</p>
 
-              <div class="mt-6 aspect-[16/10] rounded-xl bg-black ring-1 ring-steel-700/60 grid place-items-center overflow-hidden group cursor-pointer">
+              <div
+                class="mt-6 aspect-[16/10] rounded-xl ring-1 ring-steel-700/60 grid place-items-center overflow-hidden group cursor-pointer transition-colors duration-300"
+                :class="isDark ? 'bg-black' : 'bg-brand/8 bg-[#1F3A5F]/8'"
+              >
                 <img
                   src="/images/DENANI-LOGO-WHITE.webp"
                   alt="Denani"
                   class="w-[38%] object-contain transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
+                  :class="isDark ? '' : 'brightness-0 invert-0'"
+                  :style="isDark ? '' : 'filter: brightness(0) saturate(100%) invert(18%) sepia(42%) saturate(700%) hue-rotate(194deg) brightness(95%) contrast(95%)'"
                 />
               </div>
 

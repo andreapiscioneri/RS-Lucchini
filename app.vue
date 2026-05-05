@@ -1,17 +1,36 @@
 <script setup lang="ts">
-// Root app — applica grain overlay globale e gradient radiale di sfondo.
+const { isDark, init } = useTheme()
+
 useHead({
-  bodyAttrs: { class: 'bg-bg text-ink antialiased font-sans selection:bg-accent/30 selection:text-ink' }
+  bodyAttrs: {
+    class: 'bg-bg text-ink antialiased font-sans selection:bg-accent/30 selection:text-ink'
+  }
+})
+
+onMounted(() => {
+  init()
 })
 </script>
 
 <template>
   <div class="relative min-h-screen overflow-x-clip">
-    <!-- Background ambient layers -->
+    <!-- Background ambient layers — adapt to theme -->
     <div aria-hidden="true" class="pointer-events-none fixed inset-0 z-0">
-      <div class="absolute inset-0 bg-grad-radial opacity-90" />
-      <div class="absolute inset-0 bg-noise opacity-[0.35] mix-blend-overlay" />
-      <div class="absolute inset-x-0 top-0 h-[60vh] bg-grad-steel" />
+      <!-- Orange radial glow: strong in dark, subtle in light -->
+      <div
+        class="absolute inset-0 transition-opacity duration-500"
+        :class="isDark ? 'bg-grad-radial opacity-90' : 'bg-grad-radial-light opacity-70'"
+      />
+      <!-- Noise grain -->
+      <div
+        class="absolute inset-0 bg-noise mix-blend-overlay transition-opacity duration-500"
+        :class="isDark ? 'opacity-[0.35]' : 'opacity-[0.15]'"
+      />
+      <!-- Top steel gradient -->
+      <div
+        class="absolute inset-x-0 top-0 h-[60vh] transition-opacity duration-500"
+        :class="isDark ? 'bg-grad-steel opacity-100' : 'bg-grad-steel-light opacity-60'"
+      />
     </div>
 
     <NuxtLayout>
@@ -21,7 +40,6 @@ useHead({
 </template>
 
 <style>
-/* Page transitions */
 .page-enter-active,
 .page-leave-active {
   transition: opacity 0.4s ease, transform 0.4s ease;

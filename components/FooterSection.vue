@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ArrowUpRight } from 'lucide-vue-next'
 
+const { isDark } = useTheme()
+
 const year = new Date().getFullYear()
 const links = [
   { label: 'Problema', href: '#problema' },
@@ -56,13 +58,21 @@ const websites = [
             <img
               src="/images/DENANI-LOGO-WHITE.webp"
               alt="Denani"
-              class="h-7 sm:h-9 w-auto object-contain"
+              class="h-7 sm:h-9 w-auto object-contain transition-all duration-300"
+              :class="isDark ? '' : 'brightness-0'"
             />
             <span class="text-steel-600 text-xl font-light">|</span>
             <img
-              src="https://lucchinirs.com/wp-content/uploads/2022/02/logo_lucchinirs-white.png"
+              v-if="isDark"
+              src="/images/lucchini.png"
               alt="Lucchini RS"
               class="h-5 sm:h-7 w-auto object-contain opacity-75"
+            />
+            <img
+              v-else
+              src="/images/luc%20dark.png"
+              alt="Lucchini RS"
+              class="h-5 sm:h-7 w-auto object-contain opacity-90"
             />
           </div>
           <p class="mt-6 text-ink-muted max-w-md text-pretty">

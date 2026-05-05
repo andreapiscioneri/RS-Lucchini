@@ -22,7 +22,7 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
-      htmlAttrs: { lang: 'it', class: 'dark' },
+      htmlAttrs: { lang: 'it' }, // default light; dark class added client-side by theme.client.ts only if stored
       title: 'Lucchini RS — Mostriamo il lavoro reale',
       meta: [
         { charset: 'utf-8' },

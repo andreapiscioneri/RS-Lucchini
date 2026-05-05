@@ -7,6 +7,8 @@ import { Search, Camera, Megaphone, Inbox, BarChart3 } from 'lucide-vue-next'
 const root = ref<HTMLElement | null>(null)
 const line = ref<SVGRectElement | null>(null)
 
+const { isDark } = useTheme()
+
 const steps = [
   {
     icon: Search,
@@ -112,8 +114,8 @@ onMounted(() => {
           />
           <defs>
             <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#F97316" />
-              <stop offset="100%" stop-color="#A8480A" />
+              <stop offset="0%" :stop-color="isDark ? '#F97316' : '#4A90E2'" />
+              <stop offset="100%" :stop-color="isDark ? '#A8480A' : '#1F3A5F'" />
             </linearGradient>
           </defs>
         </svg>

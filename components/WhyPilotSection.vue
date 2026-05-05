@@ -6,6 +6,8 @@ import { ShieldCheck, Target, Gauge, Feather } from 'lucide-vue-next'
 const root = ref<HTMLElement | null>(null)
 useReveal(root, { stagger: 0.1 })
 
+const { isDark } = useTheme()
+
 const reasons = [
   {
     icon: ShieldCheck,
@@ -51,16 +53,17 @@ onMounted(() => {
     <!-- Industrial lines background -->
     <svg
       aria-hidden="true"
-      class="absolute inset-0 -z-10 w-full h-full opacity-[0.18]"
+      class="absolute inset-0 -z-10 w-full h-full transition-opacity duration-300"
+      :class="isDark ? 'opacity-[0.18]' : 'opacity-[0.15]'"
       viewBox="0 0 1200 600"
       preserveAspectRatio="none"
     >
-      <g fill="none" stroke="#94A3B8" stroke-width="1">
+      <g fill="none" :stroke="isDark ? '#94A3B8' : '#1F3A5F'" stroke-width="1">
         <path class="svg-line" d="M0,140 L420,140 L460,180 L1200,180" />
         <path class="svg-line" d="M0,300 L300,300 L340,260 L800,260 L840,300 L1200,300" />
         <path class="svg-line" d="M0,460 L520,460 L560,420 L1200,420" />
       </g>
-      <g fill="#F97316">
+      <g :fill="isDark ? '#F97316' : '#2C5B8A'">
         <circle cx="460" cy="180" r="3" />
         <circle cx="840" cy="300" r="3" />
         <circle cx="560" cy="420" r="3" />

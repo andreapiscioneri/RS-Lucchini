@@ -1,17 +1,30 @@
 /* RS Lucchini — main.css
- * Stile globale: dark industrial premium.
- * Convenzioni: usare classi Tailwind nei template, riservare CSS globale a:
- * reset, tipografia, scrollbar, utility "cinematiche", focus a11y.
+ * Dark + light mode industrial premium.
+ * Semantic colors use CSS custom properties (space-separated RGB for Tailwind opacity support).
  */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ---------- Base ---------- */
+/* ---------- Theme variables ---------- */
 @layer base {
-  :root {
+
+  /* Dark mode (default — applied via html.dark class) */
+  html.dark {
     color-scheme: dark;
+    --color-bg: 11 15 20;
+    --color-bg-deep: 7 10 15;
+    --color-bg-soft: 16 21 28;
+    --color-steel-500: 63 74 92;
+    --color-steel-600: 41 49 66;
+    --color-steel-700: 31 37 51;
+    --color-steel-800: 26 31 41;
+    --color-ink: 245 247 250;
+    --color-ink-muted: 148 163 184;
+    --color-ink-dim: 100 116 139;
+    --color-accent: 249 115 22; /* orange */
+
     --bg: #0b0f14;
     --bg-deep: #070a0f;
     --steel-800: #1a1f29;
@@ -21,32 +34,49 @@
     --glow: rgba(249, 115, 22, 0.25);
   }
 
+  /* Light mode — blu industriale, niente arancio */
+  html:not(.dark) {
+    color-scheme: light;
+    --color-bg: 255 255 255;
+    --color-bg-deep: 242 242 242;
+    --color-bg-soft: 229 229 229;
+    --color-steel-500: 148 163 184;
+    --color-steel-600: 148 163 184;
+    --color-steel-700: 229 229 229;
+    --color-steel-800: 242 242 242;
+    --color-ink: 51 51 51;
+    --color-ink-muted: 74 74 74;
+    --color-ink-dim: 107 114 128;
+    --color-accent: 44 91 138; /* #2C5B8A — blu industriale */
+
+    --bg: #ffffff;
+    --bg-deep: #f2f2f2;
+    --steel-800: #f2f2f2;
+    --ink: #333333;
+    --ink-muted: #4a4a4a;
+    --accent: #2c5b8a;
+    --glow: rgba(44, 91, 138, 0.20);
+  }
+
   html {
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
   }
 
-  /* Lenis disable-default-smooth */
+  /* Lenis */
   html.lenis,
-  html.lenis body {
-    height: auto;
-  }
-  .lenis.lenis-smooth {
-    scroll-behavior: auto;
-  }
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
+  html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
 
   body {
-    background: var(--bg);
-    color: var(--ink);
+    background: rgb(var(--color-bg));
+    color: rgb(var(--color-ink));
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
     min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   h1, h2, h3, h4 {
@@ -60,7 +90,11 @@
     color: #fff;
   }
 
-  /* Focus a11y */
+  html:not(.dark) ::selection {
+    background: rgba(44, 91, 138, 0.25);
+    color: #1F3A5F;
+  }
+
   :where(a, button, [role='button'], input, textarea, select):focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
@@ -68,14 +102,23 @@
   }
 
   /* Scrollbar */
-  ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: #0b0f14; }
-  ::-webkit-scrollbar-thumb {
+  html.dark ::-webkit-scrollbar { width: 10px; height: 10px; }
+  html.dark ::-webkit-scrollbar-track { background: #0b0f14; }
+  html.dark ::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, #1f2533, #11141c);
     border-radius: 999px;
     border: 2px solid #0b0f14;
   }
-  ::-webkit-scrollbar-thumb:hover { background: #293142; }
+  html.dark ::-webkit-scrollbar-thumb:hover { background: #293142; }
+
+  html:not(.dark) ::-webkit-scrollbar { width: 10px; height: 10px; }
+  html:not(.dark) ::-webkit-scrollbar-track { background: #f2f2f2; }
+  html:not(.dark) ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #c9d0dc, #94a3b8);
+    border-radius: 999px;
+    border: 2px solid #f2f2f2;
+  }
+  html:not(.dark) ::-webkit-scrollbar-thumb:hover { background: #64748b; }
 }
 
 /* ---------- Components ---------- */
@@ -88,18 +131,34 @@
     @apply py-16 sm:py-24 lg:py-36;
   }
 
-  /* Glass cards */
+  /* Glass cards — dark */
   .glass {
     background: linear-gradient(180deg, rgba(26, 31, 41, 0.65) 0%, rgba(17, 20, 28, 0.55) 100%);
     backdrop-filter: blur(14px) saturate(120%);
     -webkit-backdrop-filter: blur(14px) saturate(120%);
     border: 1px solid rgba(148, 163, 184, 0.10);
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  html:not(.dark) .glass {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.90) 0%, rgba(242, 242, 242, 0.80) 100%);
+    border: 1px solid rgba(31, 58, 95, 0.12);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.8),
+      0 4px 24px -4px rgba(31, 58, 95, 0.08);
   }
 
   .glass-strong {
     background: linear-gradient(180deg, rgba(31, 37, 51, 0.75), rgba(11, 15, 20, 0.65));
     border: 1px solid rgba(148, 163, 184, 0.16);
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  html:not(.dark) .glass-strong {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(242, 242, 242, 0.90));
+    border: 1px solid rgba(31, 58, 95, 0.15);
+    box-shadow: 0 8px 40px -8px rgba(31, 58, 95, 0.12);
   }
 
   .ring-steel {
@@ -108,9 +167,22 @@
       0 30px 80px -30px rgba(0, 0, 0, 0.6);
   }
 
+  html:not(.dark) .ring-steel {
+    box-shadow:
+      0 0 0 1px rgba(31, 58, 95, 0.10),
+      0 20px 60px -20px rgba(31, 58, 95, 0.12);
+  }
+
   /* Eyebrow tag */
   .eyebrow {
     @apply inline-flex items-center gap-2 px-3 py-1 text-[11px] uppercase tracking-[0.18em] font-medium text-ink-muted border border-steel-700/70 rounded-full bg-steel-800/40;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+
+  html:not(.dark) .eyebrow {
+    border-color: rgba(31, 58, 95, 0.25);
+    background: rgba(31, 58, 95, 0.06);
+    color: #2C5B8A;
   }
 
   /* Animated gradient border */
@@ -131,6 +203,11 @@
     -webkit-mask-composite: xor;
             mask-composite: exclude;
     pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  html:not(.dark) .grad-border::before {
+    background: linear-gradient(135deg, rgba(44, 91, 138, 0.40), rgba(31, 58, 95, 0.08) 40%, rgba(74, 144, 226, 0.30));
   }
 
   /* Shine button overlay */
@@ -152,7 +229,7 @@
     transform: translateX(100%);
   }
 
-  /* Tilt utility (used with JS hook) */
+  /* Tilt utility */
   .tilt {
     transform-style: preserve-3d;
     transition: transform 0.4s ease;
@@ -162,14 +239,26 @@
   .divider-x {
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(148,163,184,0.2), transparent);
+    transition: background 0.3s ease;
+  }
+
+  html:not(.dark) .divider-x {
+    background: linear-gradient(90deg, transparent, rgba(31, 58, 95, 0.18), transparent);
   }
 
   /* Reveal hidden state */
   [data-reveal] { opacity: 0; transform: translateY(24px); }
 
-  /* Gradient text */
+  /* Gradient text — dark: white-to-steel, light: blue industrial */
   .text-gradient {
     background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 60%, #94a3b8 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+  }
+
+  html:not(.dark) .text-gradient {
+    background: linear-gradient(180deg, #1F3A5F 0%, #2C5B8A 70%, #4A90E2 100%);
     -webkit-background-clip: text;
             background-clip: text;
     color: transparent;
@@ -182,10 +271,22 @@
     color: transparent;
   }
 
+  html:not(.dark) .text-accent-gradient {
+    background: linear-gradient(110deg, #4A90E2 0%, #2C5B8A 50%, #1F3A5F 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+  }
+
   /* Industrial tag dot */
   .dot {
     width: 6px; height: 6px; border-radius: 999px; background: #f97316;
     box-shadow: 0 0 0 3px rgba(249,115,22,0.18);
+  }
+
+  html:not(.dark) .dot {
+    background: #2C5B8A;
+    box-shadow: 0 0 0 3px rgba(44, 91, 138, 0.18);
   }
 }
 
@@ -211,6 +312,11 @@
     mix-blend-mode: overlay;
     pointer-events: none;
   }
+}
+
+/* ---------- Light mode — override orange radial glow a blu ---------- */
+html:not(.dark) .bg-grad-radial {
+  background-image: radial-gradient(1200px 600px at 50% -10%, rgba(44, 91, 138, 0.10), transparent 60%);
 }
 
 /* ---------- Reduced motion ---------- */

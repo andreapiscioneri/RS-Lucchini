@@ -63,6 +63,8 @@ const cards: Card[] = [
 const root = ref<HTMLElement | null>(null)
 useReveal(root, { stagger: 0.07 })
 
+const { isDark } = useTheme()
+
 // Tilt + autoplay video controllati per card
 const tilts = ref<Array<HTMLElement | null>>([])
 const videoRefs = ref<Array<HTMLVideoElement | null>>([])
@@ -121,8 +123,8 @@ onMounted(() => {
           ]"
           :ref="(el) => (tilts[i] = el as HTMLElement)"
         >
-          <!-- Media -->
-          <div class="absolute inset-0">
+          <!-- Media — dark mode only (poster SVG hanno sfondi scuri) -->
+          <div v-if="isDark" class="absolute inset-0">
             <NuxtImg
               v-if="c.poster"
               :src="c.poster"
@@ -142,23 +144,33 @@ onMounted(() => {
             />
           </div>
 
-          <!-- Gradient overlay -->
-          <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
+          <!-- Light mode: sfondo chiaro con tinta blu industriale -->
           <div
-            v-if="c.tone === 'accent'"
-            class="absolute inset-0 bg-gradient-to-tr from-accent/20 via-transparent to-transparent mix-blend-screen"
+            v-if="!isDark"
+            class="absolute inset-0"
+            :style="`background: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 50%, #dde6f0 100%);`"
+          />
+
+          <!-- Dark mode: gradient overlay -->
+          <div
+            v-if="isDark"
+            class="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent z-[2]"
+          />
+          <div
+            v-if="c.tone === 'accent' && isDark"
+            class="absolute inset-0 bg-gradient-to-tr from-accent/20 via-transparent to-transparent mix-blend-screen z-[2]"
           />
 
           <!-- Play badge -->
           <div
             v-if="c.video"
-            class="absolute top-4 right-4 inline-flex items-center justify-center w-11 h-11 rounded-full bg-bg/60 backdrop-blur-md ring-1 ring-white/10 text-ink translate-y-1 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
+            class="absolute top-4 right-4 z-[10] inline-flex items-center justify-center w-11 h-11 rounded-full bg-bg/60 backdrop-blur-md ring-1 ring-white/10 text-ink translate-y-1 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
           >
             <Play class="w-4 h-4 fill-current" />
           </div>
 
           <!-- Content -->
-          <div class="relative z-10 h-full flex flex-col justify-end p-5 sm:p-6">
+          <div class="relative z-[10] h-full flex flex-col justify-end p-5 sm:p-6">
             <div class="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-ink-muted">
               <component :is="c.icon" class="w-3.5 h-3.5 text-accent" />
               {{ c.id }}
