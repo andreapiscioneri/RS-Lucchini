@@ -4,15 +4,9 @@
 import { ChevronDown } from 'lucide-vue-next'
 
 const { isDark } = useTheme()
-const brochureHref = computed(() =>
-  isDark.value
-    ? '/images/Denani%20Lucchini%20RS%20proposal%20dark.pdf'
-    : '/images/Denani%20Lucchini%20RS%20proposal%20light.pdf'
-)
 const root = ref<HTMLElement | null>(null)
 const headline = ref<HTMLElement | null>(null)
 const sub = ref<HTMLElement | null>(null)
-const ctas = ref<HTMLElement | null>(null)
 const media = ref<HTMLElement | null>(null)
 
 onMounted(() => {
@@ -28,7 +22,6 @@ onMounted(() => {
       '-=0.4'
     )
     .from(sub.value, { y: 24, opacity: 0, duration: 0.8 }, '-=0.55')
-    .from(ctas.value?.children ?? [], { y: 16, opacity: 0, duration: 0.6, stagger: 0.08 }, '-=0.5')
     .from('.hero-scroll-hint', { opacity: 0, duration: 0.6 }, '-=0.2')
 
   // Parallax bg + slow zoom controlled by scroll
@@ -130,20 +123,6 @@ const handleNav = (href: string) => {
         e comunicazione moderna possono migliorare qualità e interesse delle
         candidature in <span class="text-ink">Lucchini RS</span>.
       </p>
-
-      <div ref="ctas" class="mt-9 flex flex-wrap items-center gap-3">
-        <AnimatedButton variant="primary" icon="arrow" @click="handleNav('#metodo')">
-          Scopri il progetto
-        </AnimatedButton>
-        <AnimatedButton
-          :href="brochureHref"
-          target="_blank"
-          variant="secondary"
-          icon="arrow"
-        >
-          Scarica brochure
-        </AnimatedButton>
-      </div>
 
       <!-- Meta micro-strip -->
       <dl class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-y-5 gap-x-8 max-w-3xl">
