@@ -46,6 +46,14 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/png', href: '/images/fav.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
+      ],
+      script: [
+        {
+          key: 'theme-init',
+          tagPosition: 'head',
+          innerHTML:
+            "(function(){try{var t=localStorage.getItem('rs-theme-v2');document.documentElement.classList.toggle('dark',t==='dark')}catch(e){}})();"
+        }
       ]
     }
   },

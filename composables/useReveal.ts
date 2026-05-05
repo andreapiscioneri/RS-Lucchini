@@ -20,10 +20,10 @@ interface RevealOptions {
 export function useReveal(target: Ref<HTMLElement | null>, opts: RevealOptions = {}) {
   const {
     selector = '[data-reveal]',
-    y = 28,
-    opacity = 0,
-    duration = 0.9,
-    stagger = 0.08,
+    y = 0,
+    opacity = 1,
+    duration = 0.01,
+    stagger = 0,
     ease = 'power3.out',
     start = 'top 82%',
     once = true,
@@ -45,7 +45,7 @@ export function useReveal(target: Ref<HTMLElement | null>, opts: RevealOptions =
     els.forEach((el) => {
       const tween = $gsap.fromTo(
         el,
-        { y, opacity, filter: 'blur(6px)' },
+        { y, opacity, filter: 'blur(0px)' },
         {
           y: 0,
           opacity: 1,
